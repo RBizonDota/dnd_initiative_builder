@@ -11,3 +11,4 @@ prettytable
 # linters
 isort
 black
+pip-tools

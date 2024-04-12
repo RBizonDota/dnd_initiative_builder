@@ -8,18 +8,25 @@ annotated-types==0.6.0
     # via pydantic
 black==24.3.0
     # via -r requirements.in
+build==1.2.1
+    # via pip-tools
 click==8.1.7
     # via
     #   -r requirements.in
     #   black
+    #   pip-tools
 isort==5.13.2
     # via -r requirements.in
 mypy-extensions==1.0.0
     # via black
 packaging==24.0
-    # via black
+    # via
+    #   black
+    #   build
 pathspec==0.12.1
     # via black
+pip-tools==7.4.1
+    # via -r requirements.in
 platformdirs==4.2.0
     # via black
 prettytable==3.10.0
@@ -28,6 +35,10 @@ pydantic==2.7.0
     # via -r requirements.in
 pydantic-core==2.18.1
     # via pydantic
+pyproject-hooks==1.0.0
+    # via
+    #   build
+    #   pip-tools
 pyyaml==6.0.1
     # via -r requirements.in
 typing-extensions==4.11.0
@@ -36,3 +47,9 @@ typing-extensions==4.11.0
     #   pydantic-core
 wcwidth==0.2.13
     # via prettytable
+wheel==0.43.0
+    # via pip-tools
+
+# The following packages are considered to be unsafe in a requirements file:
+# pip
+# setuptools
