@@ -1,0 +1,21 @@
+# mod: adv/dis/str
+
+characters:
+  Роман Еблан:
+    bonus: 1
+    mod: adv
+    user: Роман
+enemies:
+  test1:
+    bonus: 1
+    mod: dis
+  test2:
+    bonus: 1
+  test3:
+    bonus: 1
+  test4:
+    bonus: 1
+  test5:
+    bonus: 1
+  test6:
+    bonus: 1

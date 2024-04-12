@@ -1,0 +1,13 @@
+# core
+pydantic
+click
+
+# parsers
+pyyaml
+
+# builders
+prettytable
+
+# linters
+isort
+black
