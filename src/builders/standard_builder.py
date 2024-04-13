@@ -11,8 +11,7 @@ class DynamicIniBuilder(BaseIniBuilder):
         data (FileData): info about the fight
     """
 
-    def build(self):
-        table = PrettyTable(["Номер", "Имя персонажа", "Игрок", "Ини"])
+    def build(self) -> list[tuple[str, str | None, int, int]]:
         chars = [
             *[
                 (char_name, char.user, self.roll(char.bonus, char.mod), char.bonus)
@@ -25,9 +24,12 @@ class DynamicIniBuilder(BaseIniBuilder):
         ]
         chars.sort(key=lambda x: x[3], reverse=True)
         chars.sort(key=lambda x: x[2], reverse=True)
-        i = 1
-        for char_name, username, roll, _ in chars:
-            table.add_row([i, char_name, username or "", roll])
-            i += 1
+        return chars
 
+    def print_table(self):
+        table = PrettyTable(["Номер", "Имя персонажа", "Игрок", "Ини"])
+        chars = self.build()
+        for index, char in enumerate(chars):
+            char_name, username, roll, _ = char
+            table.add_row([index + 1, char_name, username or "", roll])
         print(table)

@@ -8,6 +8,9 @@ pyyaml
 # builders
 prettytable
 
+# web
+eel
+
 # linters
 isort
 black

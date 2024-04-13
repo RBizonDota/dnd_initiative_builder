@@ -10,8 +10,16 @@ astroid==3.1.0
     # via pylint
 black==24.3.0
     # via -r requirements.in
+bottle==0.12.25
+    # via
+    #   bottle-websocket
+    #   eel
+bottle-websocket==0.2.9
+    # via eel
 build==1.2.1
     # via pip-tools
+cffi==1.16.0
+    # via gevent
 click==8.1.7
     # via
     #   -r requirements.in
@@ -24,6 +32,16 @@ colorama==0.4.6
     #   pylint
 dill==0.3.8
     # via pylint
+eel==0.16.0
+    # via -r requirements.in
+future==1.0.0
+    # via eel
+gevent==24.2.1
+    # via gevent-websocket
+gevent-websocket==0.10.1
+    # via bottle-websocket
+greenlet==3.0.3
+    # via gevent
 isort==5.13.2
     # via
     #   -r requirements.in
@@ -46,12 +64,16 @@ platformdirs==4.2.0
     #   pylint
 prettytable==3.10.0
     # via -r requirements.in
+pycparser==2.22
+    # via cffi
 pydantic==2.7.0
     # via -r requirements.in
 pydantic-core==2.18.1
     # via pydantic
 pylint==3.1.0
     # via -r requirements.in
+pyparsing==3.1.2
+    # via eel
 pyproject-hooks==1.0.0
     # via
     #   build
@@ -68,6 +90,12 @@ wcwidth==0.2.13
     # via prettytable
 wheel==0.43.0
     # via pip-tools
+whichcraft==0.6.1
+    # via eel
+zope-event==5.0
+    # via gevent
+zope-interface==6.3
+    # via gevent
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip

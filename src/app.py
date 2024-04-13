@@ -3,13 +3,19 @@ import sys
 
 import click
 
+from src.builders.base import BaseIniBuilder
+from src.data_parsers.base import BaseParser
+from src.web.main import run_web
+
 from .builders.standard_builder import DynamicIniBuilder
 from .data_parsers.yaml import YamlParser
 from .dto.enums import BuilderEnum, ParserEnum
 
-map_parser_to_class = {ParserEnum.YAML.value: YamlParser}
+map_parser_to_class: dict[str, type[BaseParser]] = {ParserEnum.YAML.value: YamlParser}
 
-map_builder_to_class = {BuilderEnum.STANDARD.value: DynamicIniBuilder}
+map_builder_to_class: dict[str, type[BaseIniBuilder]] = {
+    BuilderEnum.STANDARD.value: DynamicIniBuilder
+}
 
 
 @click.command()
@@ -28,11 +34,15 @@ map_builder_to_class = {BuilderEnum.STANDARD.value: DynamicIniBuilder}
     show_default=True,
     help=f"Builder to use. Available options: {BuilderEnum.values()}",
 )
+@click.option(
+    "-w", "--web", type=bool, is_flag=True, default=False, help="Open web interface"
+)
 @click.argument("filename", type=str)
 def app(
     # debug: bool,
     parser: str,
     builder: str,
+    web: bool,
     filename: str,
 ):
     """
@@ -42,20 +52,23 @@ def app(
         print(f"Configuration error: file with path '{filename}' does not exist")
         sys.exit(1)
 
-    parser_class = map_parser_to_class.get(parser)
+    parser_class: type[BaseParser] = map_parser_to_class.get(parser)
     if not parser_class:
         print(f"Configuration error: invalid parser '{parser}'")
         sys.exit(1)
 
-    builder_class = map_builder_to_class.get(builder)
+    builder_class: type[BaseIniBuilder] = map_builder_to_class.get(builder)
     if not builder_class:
         print(f"Configuration error: invalid builder '{parser}'")
         sys.exit(1)
 
-    with open(filename, "rb") as f:
-        file_data = parser_class().parse(f)
-        builder_class(file_data).build()
-    # print(parser, builder, filename)
+    file_data = parser_class().parse(filename)
+
+    if not web:
+        builder_class(file_data).print_table()
+        sys.exit(1)
+
+    run_web(filename, builder_class(file_data))
 
 
 if __name__ == "__main__":

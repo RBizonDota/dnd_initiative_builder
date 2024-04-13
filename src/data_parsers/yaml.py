@@ -1,5 +1,3 @@
-from io import BytesIO
-
 import yaml
 from yaml.loader import SafeLoader
 
@@ -12,6 +10,7 @@ class YamlParser(BaseParser):
     Class for parsing config ini-file
     """
 
-    def parse(self, file_data: BytesIO) -> FileData:
-        data = FileData(**yaml.load(file_data, Loader=SafeLoader))
+    def parse(self, filename: str) -> FileData:
+        with open(filename, "rb") as f:
+            data = FileData(**yaml.load(f, Loader=SafeLoader))
         return data

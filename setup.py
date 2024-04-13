@@ -6,7 +6,7 @@ setup(
     name="dynini",
     version="0.1",
     packages=find_packages(),
-    install_requires=["pydantic", "click", "pyyaml", "prettytable"],
+    install_requires=["pydantic", "click", "pyyaml", "prettytable", 'eel'],
     license="MIT",
     long_description=codecs.open("README.md", "r", "utf_8_sig").read(),
     zip_safe=False,
