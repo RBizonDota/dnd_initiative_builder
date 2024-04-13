@@ -12,3 +12,4 @@ prettytable
 isort
 black
 pip-tools
+pylint

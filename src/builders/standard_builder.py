@@ -4,6 +4,12 @@ from src.builders.base import BaseIniBuilder
 
 
 class DynamicIniBuilder(BaseIniBuilder):
+    """
+    Class for building a battle table by ini file
+
+    Attributes:
+        data (FileData): info about the fight
+    """
 
     def build(self):
         table = PrettyTable(["Номер", "Имя персонажа", "Игрок", "Ини"])

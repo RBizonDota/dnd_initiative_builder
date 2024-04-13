@@ -8,6 +8,10 @@ from src.dto.file_data import FileData
 
 
 class YamlParser(BaseParser):
+    """
+    Class for parsing config ini-file
+    """
+
     def parse(self, file_data: BytesIO) -> FileData:
         data = FileData(**yaml.load(file_data, Loader=SafeLoader))
         return data

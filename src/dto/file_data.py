@@ -1,3 +1,4 @@
+# pylint: skip-file
 from pydantic import BaseModel, Field
 
 from src.dto.enums import IniMode
