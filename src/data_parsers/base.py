@@ -1,5 +1,4 @@
 from abc import abstractmethod
-from io import BytesIO
 
 from src.dto.file_data import FileData
 
@@ -10,11 +9,11 @@ class BaseParser:
     """
 
     @abstractmethod
-    def parse(self, file_data: BytesIO) -> FileData:
+    def parse(self, filename: str) -> FileData:
         """
-        Parses the file and returns information about the current battle
+        Parses the file by path and returns information about the current battle
         Parameters:
-            file_data (BytesIO): path to config file
+            filename (str): path to config file
         Returns:
             FileData: Info by current battle
         """

@@ -18,7 +18,15 @@ class BaseIniBuilder(ABC):
         self._enemies = data.enemies
 
     @abstractmethod
-    def build(self):
+    def build(self) -> list[tuple[str, str | None, int, int]]:
+        """
+        Builds list with info and initiative all chars
+        Returns:
+            list[tuple[str, str | None, int, int]]: list with info and initiative all chars
+        """
+
+    @abstractmethod
+    def print_table(self):
         """Builds and prints a table about the fight in the console"""
 
     def roll(self, bonus: int, mod: IniMode) -> int:
