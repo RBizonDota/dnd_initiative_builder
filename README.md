@@ -3,7 +3,7 @@ Util is designed to generate initiative list by provided configuration file.
 Usage:
 ```bash
 python setup.py install
-dnd_ini examples/test_ini.yaml
+dnd_ini examples/test_ini.yaml -w
 ```
 
 Show help:
@@ -19,6 +19,7 @@ Options:
   --parser TEXT   Parser to use. Available options: ['yaml']  [default: yaml]
   --builder TEXT  Builder to use. Available options: ['std']  [default: std]
   --help          Show this message and exit.
+  -w --web        Run in web interface
 ```
 
 Output example:
