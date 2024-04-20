@@ -29,14 +29,16 @@ class BaseIniBuilder(ABC):
     def print_table(self):
         """Builds and prints a table about the fight in the console"""
 
-    def roll(self, bonus: int, mod: IniMode, bonus_roll: tuple[int, ...]) -> int:
+    def roll(self, bonus: int, mod: IniMode, bonus_roll: list[tuple[int, int]]) -> int:
         """
         Generate a cube roll for a selected character
         Parameters:
             bonus (int): bonus to the roll of the selected character
             mod (IniMode): mode to the roll of the selected character
         """
-        bonus = bonus + sum(randint(1, i) for i in bonus_roll)
+        bonus = bonus + sum(
+            sum(randint(1, r[1]) for _ in range(r[0])) for r in bonus_roll
+        )
         if mod == IniMode.STRAIGHT:
             return randint(1, 20) + bonus
         if mod == IniMode.ADVANTAGE:

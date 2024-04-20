@@ -9,7 +9,7 @@ characters:
     bonus: 0
     mod: adv
     user: Иван
-    bonus_roll: 1d4
+    bonus_roll: 1d4+1к7+2d2
 enemies:
   test1:
     bonus: 1
