@@ -6,20 +6,22 @@ from pydantic import BaseModel, Field, field_validator
 
 from src.dto.enums import IniMode
 
-parse_template = r"(\dd\d)|(\dк\d)"
+mod_template = r"(\d)d(\d)|(\d)к(\d)"
 
 
 class IniMember(BaseModel):
     bonus: int
     mod: IniMode | None = Field(default=IniMode.STRAIGHT)
     user: str | None = None
-    bonus_roll: tuple[int, ...] = tuple()
+    bonus_roll: list[tuple[int, int]] = []
 
     @field_validator("bonus_roll", mode="before")
-    def parse_bonus(cls, v: typing.Any) -> typing.Tuple[typing.Any, ...]:
+    def parse_bonus(cls, v: typing.Any) -> list[tuple[str, str]]:
         if isinstance(v, str):
-            list_bonus = [i[0] or i[1] for i in re.findall(parse_template, v)]
-            return tuple(i[2:] for i in list_bonus)
+            return [
+                (i[0], i[1]) if all((i[0], i[1])) else (i[2], i[3])
+                for i in re.findall(mod_template, v)
+            ]
         return v
 
 
