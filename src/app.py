@@ -4,12 +4,11 @@ import sys
 import click
 
 from src.builders.base import BaseIniBuilder
+from src.builders.standard_builder import DynamicIniBuilder
 from src.data_parsers.base import BaseParser
+from src.data_parsers.yaml import YamlParser
+from src.dto.enums import BuilderEnum, ParserEnum
 from src.web.main import run_web
-
-from .builders.standard_builder import DynamicIniBuilder
-from .data_parsers.yaml import YamlParser
-from .dto.enums import BuilderEnum, ParserEnum
 
 map_parser_to_class: dict[str, type[BaseParser]] = {ParserEnum.YAML.value: YamlParser}
 
@@ -68,7 +67,7 @@ def app(
         builder_class(file_data).print_table()
         sys.exit(1)
 
-    run_web(filename, builder_class(file_data))
+    run_web(builder_class(file_data))
 
 
 if __name__ == "__main__":

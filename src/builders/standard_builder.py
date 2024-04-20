@@ -14,11 +14,21 @@ class DynamicIniBuilder(BaseIniBuilder):
     def build(self) -> list[tuple[str, str | None, int, int]]:
         chars = [
             *[
-                (char_name, char.user, self.roll(char.bonus, char.mod), char.bonus)
+                (
+                    char_name,
+                    char.user,
+                    self.roll(char.bonus, char.mod, char.bonus_roll),
+                    char.bonus,
+                )
                 for char_name, char in self._characters.items()
             ],
             *[
-                (char_name, char.user, self.roll(char.bonus, char.mod), char.bonus)
+                (
+                    char_name,
+                    char.user,
+                    self.roll(char.bonus, char.mod, char.bonus_roll),
+                    char.bonus,
+                )
                 for char_name, char in self._enemies.items()
             ],
         ]

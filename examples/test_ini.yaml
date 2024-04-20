@@ -5,6 +5,11 @@ characters:
     bonus: 1
     mod: adv
     user: Роман
+  Сахн:
+    bonus: 0
+    mod: adv
+    user: Иван
+    bonus_roll: 1d4
 enemies:
   test1:
     bonus: 1

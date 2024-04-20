@@ -3,11 +3,10 @@ import eel
 from src.builders.base import BaseIniBuilder
 
 
-def run_web(file_name: str, builder: BaseIniBuilder):
+def run_web(builder: BaseIniBuilder):
     """
     Function to run web app
     Parameters:
-        file_name (str): file name with config
         builder (BaseIniBuilder): builder
     """
     eel.init("src/web")
