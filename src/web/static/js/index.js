@@ -8,9 +8,9 @@ document.querySelector("button").onclick = function () {
 
         const body = document.body,
             tbl = document.createElement('table');
-        tbl.style.width = '100px';
+        tbl.style.width = '300px'
         tbl.style.border = '1px solid black';
-        console.log(chars);
+        tbl.style.margin = '1% auto';
         for (let i = 0; i < chars.length; i++) {
             const tr = tbl.insertRow();
             for (let j = 0; j < chars[0].length; j++) {
@@ -18,6 +18,7 @@ document.querySelector("button").onclick = function () {
                 const td = tr.insertCell();
                 td.appendChild(document.createTextNode(chars[i][j]));
                 td.style.border = '1px solid black';
+
             }
         }
         body.appendChild(tbl);
