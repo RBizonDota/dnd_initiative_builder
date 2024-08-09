@@ -2,25 +2,35 @@
 
 characters:
   Маликет:
-    bonus: 1
-    mod: adv
-    user: Роман
-  Сахн:
     bonus: 0
-    mod: adv
-    user: Иван
-    bonus_roll: 1d4+1к7+2d2
+    user: Романыч
+  Роза:
+    bonus: 1
+    user: Катя
+  Гнар:
+    bonus: 4
+    user: Ваня
+  Дубень:
+    bonus: 3
+    user: Арсений
+  Ниас:
+    bonus: 0
+    user: Атрём
+  Имя Лизы:
+    bonus: 0
+    user: Лиза
+  гости:
+    bonus: 0
 enemies:
-  test1:
-    bonus: 1
-    mod: dis
-  test2:
-    bonus: 1
-  test3:
-    bonus: 1
-  test4:
-    bonus: 1
-  test5:
-    bonus: 1
-  test6:
-    bonus: 1
+  Убийцы :
+    bonus: +0
+  Убийцы :
+    bonus: +0
+
+
+  
+  
+
+
+
+
