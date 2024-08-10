@@ -33,10 +33,10 @@ document.querySelector("button").onclick = function () {
                 td.style.border = '2px solid black';
             }
             const td = tr.insertCell();
-            td.appendChild(document.createTextNode('Hi'));
+            td.appendChild(document.createTextNode(' '));
             td.style.border = '2px solid black';
             const td2 = tr.insertCell();
-            td2.appendChild(document.createTextNode('Hi'));
+            td2.appendChild(document.createTextNode(' '));
             td2.style.border = '2px solid black';
         }
         body.appendChild(tbl);
