@@ -1,0 +1,48 @@
+# mod: adv/dis/str
+
+characters:
+  Маликет:
+    bonus: 0
+    user: Роман
+<<<<<<< Updated upstream
+  Сахн:
+    bonus: 0
+    mod: adv
+    user: Иван
+    bonus_roll: 1d4+1к7+2d2
+enemies:
+  test1:
+    bonus: 1
+    mod: dis
+  test2:
+    bonus: 1
+  test3:
+    bonus: 1
+  test4:
+    bonus: 1
+  test5:
+    bonus: 1
+  test6:
+=======
+  Роза:
+>>>>>>> Stashed changes
+    bonus: 1
+    user: Катя
+  Ньян:
+    bonus: 3
+    user: Артём
+  Сахн:
+    bonus: 0
+    user: Ваня
+  Дубень:
+    bonus: 2
+    user: Арсений
+  Киара:
+    bonus: 2
+    user: Велес
+enemies:
+  Серая слизь :
+    bonus: -2
+  Псих слизь:
+    bonus: -2
+
